@@ -1,0 +1,18 @@
+<table class="table table">
+    <thead>
+        <tr>
+            <th>Numero de Documento</th>
+            <th>Fecha de Ingreso</th>
+            <th>Hora de Ingreso</th>
+            <th>Hora de Salida</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let ingresoEmpleado of listaIngresoEmpleados">
+        <tr>
+            <td>{{ingresoEmpleado.numeroDocumento}}</td>
+            <td>{{ingresoEmpleado.fechaIngreso}}</td>
+            <td>{{ingresoEmpleado.horaIngreso}}</td>
+            <td>{{ingresoEmpleado.horaSalida}}</td>
+        </tr>
+    </tbody>
+</table>

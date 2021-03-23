@@ -1,0 +1,25 @@
+<div class="container-xl">
+    <div class="card">
+        <div class="card-body">
+            <form class="login-form" (ngSubmit)="formularioIngreso.form.valid && registrarIngreso()" #formularioIngreso="ngForm" novalidate>
+                <div class="row">
+                    <div class="col-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <label for="numeroDocumento"><h3>Por favor digite su nùmero de documento:</h3></label>
+                        <input id="numeroDocumento" name="numeroDocumento" class="form-control" type="number" placeholder="Nùmero documento" [(ngModel)]="ingresoEmpleado.numeroDocumento" #numeroDocumento="ngModel" required autofocus>
+                        <div class="alert alert-danger mt-2" role="alert" *ngIf="formularioIngreso.submitted && formularioIngreso.invalid">
+                            El numero de documento no puede estar vacío.
+                        </div>
+                        <div class="alert alert-danger mt-2" role="alert" *ngIf="mensajeError != ''">
+                            {{mensajeError}}
+                        </div>
+                    </div>
+                    <div class="group-center mt-3">
+                        <button class="btn" type="submit">
+                            Registrar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.main__container {
+    min-height: 92vh;
+    background-color: #eff2f5;
+}
+
+.card {
+    border: none;
+    background-color: #eff2f5;
+}
+
+button {
+    border-color: #5590C3;
+    color: #5590C3;
+}
+
+button:hover {
+    background-color: #5590C3;
+    color: #fff;
+}
