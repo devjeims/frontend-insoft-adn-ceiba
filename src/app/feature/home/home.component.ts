@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from './shared/service/home.service';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  trm: string;
 
-
-  constructor() { }
+  constructor(protected homeService: HomeService) { }
 
   ngOnInit() {
+    this.homeService.getTrmToday().subscribe(trmToday => {
+      this.trm = trmToday.USD_COP;
+    });
   }
 
 }

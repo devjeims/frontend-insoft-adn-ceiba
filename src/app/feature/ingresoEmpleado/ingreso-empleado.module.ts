@@ -6,6 +6,11 @@ import { ListarIngresoEmpleadoComponent } from './components/listar-ingreso-empl
 import { IngresoEmpleadoComponent } from './components/ingreso-empleado/ingreso-empleado.component';
 import { RegistrarIngresoEmpleadoComponent } from './components/registrar-ingreso-empleado/registrar-ingreso-empleado.component';
 
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
     declarations: [
@@ -15,7 +20,11 @@ import { RegistrarIngresoEmpleadoComponent } from './components/registrar-ingres
     ],
     imports: [
         IngresoEmpleadoRoutingModule,
-        SharedModule
+        SharedModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
     providers: [IngresoEmpleadoService]
 })

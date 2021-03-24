@@ -3,6 +3,7 @@ export class IngresoEmpleado {
     numeroDocumento: string;
     fechaIngreso: string;
     horaIngreso: string;
+    horaSalida: string;
 
     constructor(id: string, numeroDocumento: string, fechaIngreso: string, horaIngreso: string) {
         this.id = id;

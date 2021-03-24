@@ -45,7 +45,9 @@ export class RegistrarIngresoEmpleadoComponent implements OnInit {
     const currentHour = new Date().getHours();
     const currentMinutes = new Date().getMinutes();
     const currentSeconds = new Date().getSeconds();
-    return currentHour + ':' + currentMinutes +  ':' + currentSeconds;
+    return (currentHour < 10 ? ('0' + currentHour ) : currentHour) + ':' +
+          (currentMinutes < 10 ? ('0' + currentMinutes ) : currentMinutes) + ':' +
+          (currentSeconds < 10 ? ('0' + currentSeconds ) : currentSeconds)
   }
 
 }

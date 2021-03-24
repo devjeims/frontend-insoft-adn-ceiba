@@ -1,30 +1,29 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
-import { IngresoEmpleadoService } from '../../shared/service/ingreso-empleado.service';
+import { InformeHorasLaboradasService } from '../../shared/service/informe-horas-laboradas.service';
 
 @Component({
-  selector: 'app-listar-ingreso-empleado',
-  templateUrl: './listar-ingreso-empleado.component.html',
-  styleUrls: ['./listar-ingreso-empleado.component.css']
+  selector: 'app-informe-mensual',
+  templateUrl: './informe-mensual.component.html',
+  styleUrls: ['./informe-mensual.component.css']
 })
-export class ListarIngresoEmpleadoComponent implements OnInit {
+export class InformeMensualComponent implements OnInit {
   displayedColumns =
-  [ 'numeroDocumento',
-    'fechaIngreso',
-    'horaIngreso',
-    'horaSalida'
+  [ 'nombreEmpleado',
+    'mes',
+    'horasLaboradas',
+    'pago'
   ];
 
-  dataSourceIngresoEmpleados = new MatTableDataSource();
+  dataSourceInformeMensual = new MatTableDataSource();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(protected ingresoEmpleadoService: IngresoEmpleadoService) { }
+  constructor(protected informeHorasLaboradasService: InformeHorasLaboradasService) { }
 
   ngOnInit() {
-    this.ingresoEmpleadoService.consultarIngresos().subscribe(ingresos => {
-      this.dataSourceIngresoEmpleados.data = ingresos;
+    this.informeHorasLaboradasService.consultarReporteMensual().subscribe(informe => {
+      this.dataSourceInformeMensual.data = informe;
       this.enablePaginator();
     });
   }
@@ -35,13 +34,13 @@ export class ListarIngresoEmpleadoComponent implements OnInit {
     this.paginator._intl.previousPageLabel = 'Página anterior';
     this.paginator._intl.firstPageLabel = 'Primera página';
     this.paginator._intl.lastPageLabel = 'Última página';
-    this.dataSourceIngresoEmpleados.paginator = this.paginator;
+    this.dataSourceInformeMensual.paginator = this.paginator;
   }
 
   
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSourceIngresoEmpleados.filter = filterValue.trim().toLowerCase();
+    this.dataSourceInformeMensual.filter = filterValue.trim().toLowerCase();
     }
 
 }
