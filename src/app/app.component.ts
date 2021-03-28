@@ -7,7 +7,7 @@ import { MenuItem } from '@core/modelo/menu-item';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app-base';
+  title = 'Insoft';
   public companies: MenuItem[] = [
     { url: '/home', nombre: 'Inicio' },
     { url: '/ingreso-empleado', nombre: 'Ingreso empleado'},

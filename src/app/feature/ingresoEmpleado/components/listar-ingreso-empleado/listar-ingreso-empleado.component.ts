@@ -18,7 +18,7 @@ export class ListarIngresoEmpleadoComponent implements OnInit {
   ];
 
   dataSourceIngresoEmpleados = new MatTableDataSource();
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   constructor(protected ingresoEmpleadoService: IngresoEmpleadoService) { }
 
@@ -26,6 +26,8 @@ export class ListarIngresoEmpleadoComponent implements OnInit {
     this.ingresoEmpleadoService.consultarIngresos().subscribe(ingresos => {
       this.dataSourceIngresoEmpleados.data = ingresos;
       this.enablePaginator();
+    }, error => {
+      console.log(error.error.mensaje);
     });
   }
 

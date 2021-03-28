@@ -27,27 +27,7 @@ export class RegistrarIngresoEmpleadoComponent implements OnInit {
   }
 
   crearNuevoEmpleado() {
-    this.ingresoEmpleado = new IngresoEmpleado(
-      '1', ' ', this.consultarFechaActual(), this.consultarHoraActual()
-    );
-  }
-
-  consultarFechaActual(): string {
-    const currentYear = new Date().getFullYear();
-    let currentMonth = new Date().getMonth();
-    const currentDay = new Date().getDay();
-    return currentYear + '-' +
-          (currentMonth < 10 ? ('0' + currentMonth ) : currentMonth) + '-' +
-          (currentDay < 10 ? ('0' + currentDay) : currentDay );
-  }
-
-  consultarHoraActual(): string {
-    const currentHour = new Date().getHours();
-    const currentMinutes = new Date().getMinutes();
-    const currentSeconds = new Date().getSeconds();
-    return (currentHour < 10 ? ('0' + currentHour ) : currentHour) + ':' +
-          (currentMinutes < 10 ? ('0' + currentMinutes ) : currentMinutes) + ':' +
-          (currentSeconds < 10 ? ('0' + currentSeconds ) : currentSeconds)
+    this.ingresoEmpleado = new IngresoEmpleado(' ');
   }
 
 }
